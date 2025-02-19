@@ -1,0 +1,521 @@
+{
+   "@context": {
+      "@vocab": "https://schema.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+   },
+   "@id": "spase://NASA/NumericalData/MMS/4/HotPlasmaCompositionAnalyzer/Burst/Level2/Ion/PT0.625S",
+   "@type": "Dataset",
+   "name": "MMS 4 Hot Plasma Composition Analyzer (HPCA) Ions, Level 2 (L2), Burst Mode, 0.625 s Data",
+   "description": "Hot Plasma Composition Analyzer (HPCA) Ions, Level 2, Burst Survey, 0.625 s Data. The MMS HPCA instruments measure the energy and composition of magnetospheric plasmas in the energy range from 1 eV to 40 keV. An electrostatic energy analyzer (ESA) that is optically coupled to a carbon-foil based Time-of-Flight (TOF) section comprises each HPCA. The basic HPCA data product is an array of counts for 5 ion species, at 63 energies, for each of 16 elevation anodes. Sixteen basic products, also called azimuths, are acquired every 0.625 s; half a spacecraft spin period nominally has 16 azimuths. The five ion species are protons (H+), alpha particles (He++), helium ions (He+), singly charged Oxygen (O+), and background counts.",
+   "url": "https://doi.org/10.48322/6cfb-rq65",
+   "sameAs": "spase://VSPO/NumericalData/MMS/4/HotPlasmaCompositionAnalyzer/Burst/Level2/Ion/PT0.625S",
+   "keywords": [
+      "MMS",
+      "Magnetic Reconnection"
+   ],
+   "identifier": {
+      "@id": "https://doi.org/10.48322/6cfb-rq65",
+      "@type": "PropertyValue",
+      "propertyID": "https://registry.identifiers.org/registry/doi",
+      "value": "doi:10.48322/6cfb-rq65",
+      "url": "https://doi.org/10.48322/6cfb-rq65"
+   },
+   "citation": {
+      "@type": "CreativeWork",
+      "citation": "Fuselier, S.A., Young, D.T., Gomez, R.G., & Burch, J.L. (2022). Space Physics Data Facility. https://doi.org/10.48322/6cfb-rq65",
+      "about": [
+         {
+            "name": "The Magnetospheric Multiscale (MMS) Mission home page at Goddard Space Flight Center (GSFC)",
+            "url": "https://mms.gsfc.nasa.gov/",
+            "description": "The Magnetospheric Multiscale (MMS) Mission Home Page hosted by the Goddard Space Flight Center (GSFC)."
+         },
+         {
+            "name": "Data Caveats and Current Release Notes at LASP MMS SDC",
+            "url": "https://lasp.colorado.edu/mms/sdc/public/datasets/hpca/",
+            "description": "The Magnetospheric Multiscale (MMS) Mission home page hosted by the Laboratory of Atmospheric and Space Physics, Science Data Center (LASP, SDC) at the University of Colorado, Boulder."
+         }
+      ]
+   },
+   "variableMeasured": {
+      "@list": [
+         {
+            "@type": "PropertyValue",
+            "name": "UTC converted from TAI time",
+            "description": "Start Time for the Record",
+            "unitText": "ns"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Delta Start Time",
+            "description": "Delta Start Time for the Record from the Central Time",
+            "unitText": "ms"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Delta Stop Time",
+            "description": "Delta Stop Time for the Record from the Central Time",
+            "unitText": "ms"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Polar Anode Number",
+            "description": "Polar Anode Index Value"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Azimuth Decimation Factor",
+            "description": "Azimuth Decimation Factor"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Polar Anode Decimation Factor",
+            "description": "Polar Anode Decimation Factor"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Energy Decimation Factor",
+            "description": "Energy Decimation Factor"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Sweep Table Number",
+            "description": "Sweep Table Index as defined in the HPCA Science Algorithm Document"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Start Azimuth",
+            "description": "Start Azimuth"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Science Mode Number",
+            "description": "Science Mode Value as defined in the HPCA Science Algorithm Document"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Electron Volts",
+            "description": "Electron Voltage associated with the Ion Counts",
+            "unitText": "eV"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Hydrogen+ Flux",
+            "description": "Hydrogen+ Flux for all Elevation Anodes across all Energies",
+            "unitText": "(cm^2 s sr eV)^-1"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Hydrogen+ Phase Space Density",
+            "description": "Hydrogen+ Phase Space Density for all Elevation Anodes across all Energies",
+            "unitText": "cm^-6 s^3"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Data Quality for Hydrogen+",
+            "description": "Per Sweep Status for H+ (0: Bad; 1: Good; 2: Good, RF On, Bkgd On; 3: Good, RF Off, Bkgd On; 4: Good, RF On, Bkgd Off; 5: Good, RF Off, Bkgd Off; 6: Good, Non-Sweeping Data)"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Helium+ Flux",
+            "description": "Helium+ Flux for all Elevation Anodes across all Energies",
+            "unitText": "(cm^2 s sr eV)^-1"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Helium+ Phase Space Density",
+            "description": "Helium+ Phase Space Density for all Elevation Anodes across all Energies",
+            "unitText": "cm^-6 s^3"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Data Quality for Helium+",
+            "description": "Per Sweep Status for He+ (0: Bad; 1: Good; 2: Good, RF On, Bkgd On; 3: Good, RF Off, Bkgd On; 4: Good, RF On, Bkgd Off; 5: Good, RF Off, Bkgd Off; 6: Good, Non-Sweeping Data)"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Helium++ Flux",
+            "description": "Helium++ Flux for all Elevation Anodes across all Energies",
+            "unitText": "(cm^2 s sr eV)^-1"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Helium++ Phase Space Density",
+            "description": "Helium++ Phase Space Density for all Elevation Anodes across all Energies",
+            "unitText": "cm^-6 s^3"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Data Quality for Helium++",
+            "description": "Per Sweep Status for He++ (0: Bad; 1: Good; 2: Good, RF On, Bkgd On; 3: Good, RF Off, Bkgd On; 4: Good, RF On, Bkgd Off; 5: Good, RF Off, Bkgd Off; 6: Good, Non-Sweeping Data)"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Oxygen+ Flux",
+            "description": "Oxygen+ Flux for all Elevation Anodes across all Energies",
+            "unitText": "(cm^2 s sr eV)^-1"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Oxygen+ Phase Space Density",
+            "description": "Oxygen+ Phase Space Density for all Elevation Anodes across all Energies",
+            "unitText": "cm^-6 s^3"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Data Quality for Oxygen+",
+            "description": "Per Sweep Status for O+ (0: Bad; 1: Good; 2: Good, RF On, Bkgd On; 3: Good, RF Off, Bkgd On; 4: Good, RF On, Bkgd Off; 5: Good, RF Off, Bkgd Off; 6: Good, Non-Sweeping Data)"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Magnetic Field Vector in DMPA plus Btotal (8 or 16 samples/s)",
+            "description": "Magnetic Field Vector in Despun Major Principal Axis-Aligned (DMPA) Cartesian Coordinates plus Btotal (8 or 16 samples/s)",
+            "unitText": "nT"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Magnetic Field Vector in GSM plus Btotal (8 or 16 samples/s)",
+            "description": "Magnetic Field Vector in Geocentric Solar Magnetospheric (GSM) Cartesian Coordinates plus Btotal (8 or 16 samples/s)",
+            "unitText": "nT"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "UTC converted from TAI time",
+            "description": "Start Time for the Azimuth Angles associated with each Half-Spin",
+            "unitText": "ns"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Delta Start Time for Azimuth Angles",
+            "description": "Delta Start Time for the Record from the Central Time",
+            "unitText": "ms"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Delta Stop Time for Azimuth Angles",
+            "description": "Delta Stop Time for the Record from the Central Time",
+            "unitText": "ms"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Azimuth Angles in degrees",
+            "description": "Azimuth Angles in Degrees for each Anode for each HPCA Half-Spin",
+            "unitText": "degree"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Azimuth Angle per eV in degrees",
+            "description": "Azimuth Angles per eV in Degrees for each Anode for each HPCA Half-Spin",
+            "unitText": "degree"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Center Elevation Angles",
+            "description": "Center Elevation Angles of each of the Anodes",
+            "unitText": "degree"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Azimuth Index",
+            "description": "Azimuth Index Value"
+         },
+         {
+            "@type": "PropertyValue",
+            "name": "Energy Step Index",
+            "description": "Energy Step Index Value"
+         }
+      ]
+   },
+   "potentialAction": {
+      "@list": [
+         {
+            "@type": "SearchAction",
+            "target": {
+               "@type": "URL",
+               "encodingFormat": "CDF",
+               "url": "ftps://lasp.colorado.edu/mms/sdc/public/data/mms4/hpca/brst/l2/ion/",
+               "description": "Download dataset data as CDF file at this URL"
+            }
+         },
+         {
+            "@type": "SearchAction",
+            "target": {
+               "@type": "URL",
+               "encodingFormat": "CDF",
+               "url": "https://lasp.colorado.edu/mms/sdc/public/data/mms4/hpca/brst/l2/ion/",
+               "description": "Download dataset data as CDF file at this URL"
+            }
+         },
+         {
+            "@type": "SearchAction",
+            "target": {
+               "@type": "URL",
+               "encodingFormat": "CDF",
+               "url": "ftps://spdf.gsfc.nasa.gov/pub/data/mms/mms4/hpca/brst/l2/ion/",
+               "description": "Download dataset data as CDF file at this URL"
+            }
+         },
+         {
+            "@type": "SearchAction",
+            "target": {
+               "@type": "URL",
+               "encodingFormat": "CDF",
+               "url": "https://spdf.gsfc.nasa.gov/pub/data/cassini/helio1day/cassini_helio1day_position_19971016_v01.cdf",
+               "description": "Download dataset data as CDF file at this URL"
+            }
+         },
+         {
+            "@type": "SearchAction",
+            "target": {
+               "@type": "URL",
+               "encodingFormat": "CDF",
+               "url": "https://cdaweb.gsfc.nasa.gov/cgi-bin/eval2.cgi?dataset=MMS4_HPCA_BRST_L2_ION&index=sp_phys",
+               "description": "Download dataset data as CDF or CSV file at this URL"
+            }
+         },
+         {
+            "@type": "SearchAction",
+            "target": {
+               "@type": "EntryPoint",
+               "contentType": "CSV",
+               "urlTemplate": "https://cdaweb.gsfc.nasa.gov/hapi/data?id=MMS4_HPCA_BRST_L2_ION&time.min=(start)&time.max=(end)",
+               "description": "Download dataset labeled by id in CSV format based on the requested start and end dates",
+               "httpMethod": "GET"
+            },
+            "query-input": [
+               {
+                  "@type": "PropertyValueSpecification",
+                  "valueName": "start",
+                  "description": "A UTC ISO DateTime. Use 2015-09-01T12:11:00 as default value.",
+                  "valueRequired": false,
+                  "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+               },
+               {
+                  "@type": "PropertyValueSpecification",
+                  "valueName": "end",
+                  "description": "A UTC ISO DateTime. Use 2015-09-01T12:11:01 as default value.",
+                  "valueRequired": false,
+                  "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+               }
+            ]
+         }
+      ]
+   },
+   "dateCreated": "2022-01-01T00:00:00",
+   "dateModified": "2023-03-04T12:34:56",
+   "datePublished": "2022-01-01T00:00:00",
+   "temporalCoverage": {
+      "@type": "DateTime",
+      "temporalCoverage": "2015-09-01T12:11:00/..",
+      "temporal": {
+         "temporal": "PT0.625S",
+         "description": "The time series is periodic with a 0.625 second cadence"
+      }
+   },
+   "spatialCoverage": {
+      "@list": [
+         {
+            "@type": "schema:Place",
+            "identifier": "http://www.spase-group.org/data/schema/EARTH_MAGNETOSHEATH",
+            "alternateName": "Earth.Magnetosheath"
+         },
+         {
+            "@type": "schema:Place",
+            "identifier": "http://www.spase-group.org/data/schema/EARTH_MAGNETOSPHERE",
+            "alternateName": "Earth.Magnetosphere"
+         },
+         {
+            "@type": "schema:Place",
+            "identifier": "http://www.spase-group.org/data/schema/EARTH_MAGNETOSPHERE_MAGNETOTAIL",
+            "alternateName": "Earth.Magnetosphere.Magnetotail"
+         },
+         {
+            "@type": "schema:Place",
+            "identifier": "http://www.spase-group.org/data/schema/EARTH_MAGNETOSPHERE_MAIN",
+            "alternateName": "Earth.Magnetosphere.Main"
+         },
+         {
+            "@type": "schema:Place",
+            "identifier": "http://www.spase-group.org/data/schema/EARTH_MAGNETOSPHERE_RADIATIONBELT",
+            "alternateName": "Earth.Magnetosphere.RadiationBelt"
+         },
+         {
+            "@type": "schema:Place",
+            "identifier": "http://www.spase-group.org/data/schema/EARTH_NEARSURFACE_EQUATORIALREGION",
+            "alternateName": "Earth.NearSurface.EquatorialRegion"
+         },
+         {
+            "@type": "schema:Place",
+            "identifier": "http://www.spase-group.org/data/schema/EARTH_NEARSURFACE_PLASMASPHERE",
+            "alternateName": "Earth.NearSurface.Plasmasphere"
+         },
+         {
+            "@type": "schema:Place",
+            "identifier": "http://www.spase-group.org/data/schema/HELIOSPHERE_NEAREARTH",
+            "alternateName": "Heliosphere.NearEarth"
+         }
+      ]
+   },
+   "creator": {
+      "@list": [
+         {
+            "@type": "Role",
+            "roleName": "Author",
+            "creator": {
+               "@type": "Person",
+               "name": "Fuselier, Stephen, A.",
+               "givenName": "Stephen, A.",
+               "familyName": "Fuselier",
+               "affiliation": {
+                  "@type": "Organization",
+                  "name": "Southwest Research Institute, also affiliated with the University of Texas at San Antonio"
+               }
+            }
+         },
+         {
+            "@type": "Role",
+            "roleName": "Author",
+            "creator": {
+               "@type": "Person",
+               "name": "Young, David, T.",
+               "givenName": "David, T.",
+               "familyName": "Young",
+               "affiliation": {
+                  "@id": "https://ror.org/03tghng59",
+                  "@type": "Organization",
+                  "name": "Southwest Research Institute"
+               },
+               "identifier": {
+                  "@id": "https://orcid.org/0000-0001-9473-7000",
+                  "@type": "PropertyValue",
+                  "propertyID": "https://registry.identifiers.org/registry/orcid",
+                  "url": "https://orcid.org/0000-0001-9473-7000",
+                  "value": "orcid:0000-0001-9473-7000"
+               }
+            }
+         },
+         {
+            "@type": "Role",
+            "roleName": "Author",
+            "creator": {
+               "@type": "Person",
+               "name": "Gomez, Roman, G.",
+               "givenName": "Roman, G.",
+               "familyName": "Gomez",
+               "affiliation": {
+                  "@id": "https://ror.org/03tghng59",
+                  "@type": "Organization",
+                  "name": "Southwest Research Institute"
+               },
+               "identifier": {
+                  "@id": "https://orcid.org/0000-0001-7888-668X",
+                  "@type": "PropertyValue",
+                  "propertyID": "https://registry.identifiers.org/registry/orcid",
+                  "url": "https://orcid.org/0000-0001-7888-668X",
+                  "value": "orcid:0000-0001-7888-668X"
+               }
+            }
+         },
+         {
+            "@type": "Role",
+            "roleName": "Author",
+            "creator": {
+               "@type": "Person",
+               "name": "Burch, James, L.",
+               "givenName": "James, L.",
+               "familyName": "Burch",
+               "affiliation": {
+                  "@id": "https://ror.org/03tghng59",
+                  "@type": "Organization",
+                  "name": "Southwest Research Institute"
+               }
+            }
+         }
+      ]
+   },
+   "contributor": [
+      {
+         "@type": "Role",
+         "roleName": "HostContact",
+         "contributor": {
+            "@type": "Person",
+            "name": "MMS_SDC_POC ",
+            "givenName": "MMS_SDC_POC",
+            "affiliation": {
+               "@type": "Organization",
+               "name": "Magnetospheric Multiscale (MMS) Science Operations Center (SOC)"
+            }
+         }
+      }
+   ],
+   "publisher": {
+      "@id": "https://ror.org/00ryjtt64",
+      "@type": "Organization",
+      "name": "Space Physics Data Facility"
+   },
+   "funding": {
+      "@type": "MonetaryGrant",
+      "funder": {
+         "@id": "https://ror.org/027ka1x80",
+         "@type": "Organization",
+         "name": "National Aeronautics and Space Administration"
+      },
+      "identifier": "NNG19PQ28C",
+      "name": "Explorer Program"
+   },
+   "license": "https://spdx.org/licenses/CC0-1.0.html",
+   "prov:wasRevisionOf": {
+      "@id": "https://doi.org/10.48322/hx4p-3v35"
+   },
+   "prov:wasDerivedFrom": {
+      "@id": "https://doi.org/10.48322/cb14-a164"
+   },
+   "isBasedOn": {
+      "@id": "https://doi.org/10.48322/cb14-a164"
+   },
+   "measurement_type": {
+      "@type": "DefinedTerm",
+      "keywords": [
+         "EnergeticParticles",
+         "MagneticField"
+      ]
+   },
+   "instrument": [
+      {
+         "@type": "IndividualProduct",
+         "identifier": "spase://SMWG/Instrument/MMS/4/FIELDS/FGM",
+         "name": "MMS 4 FIELDS Suite, Fluxgate Magnetometer (FGM) Instrument",
+         "url": "https://www.nasa.gov/mission_pages/mms/spacecraft/mms-instruments.html"
+      },
+      {
+         "@type": "IndividualProduct",
+         "identifier": "spase://SMWG/Instrument/MMS/4/HotPlasmaCompositionAnalyzer",
+         "name": "MMS 4 Hot Plasma Composition Analyzer (HPCA) Instrument",
+         "url": "https://www.nasa.gov/mission_pages/mms/spacecraft/mms-instruments.html"
+      }
+   ],
+   "observatory": [
+      {
+         "@type": "ResearchProject",
+         "@id": "spase://SMWG/Observatory/MMS",
+         "name": "MMS",
+         "url": "https://mms.gsfc.nasa.gov/"
+      },
+      {
+         "@type": "ResearchProject",
+         "@id": "spase://SMWG/Observatory/MMS/4",
+         "name": "MMS-4",
+         "url": "https://mms.gsfc.nasa.gov/"
+      }
+   ],
+   "alternateName": "MMS4_HPCA_BRST_L2_ION",
+   "inLanguage": "en",
+   "isRelatedTo": {
+      "@id": [
+         "https://doi.org/10.48322/xhe6-5a16",
+         "https://doi.org/10.48322/2ry9-3s59"
+      ]
+   },
+   "isPartOf": {
+      "@id": "https://doi.org/10.48322/s9mg-he04"
+   }
+}
