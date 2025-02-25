@@ -514,8 +514,8 @@ class SPASE(StrategyInterface):
             #TODO: find out what should go here!!!
             if prodKeys == "None":
                 potential_actionList.append({"@type": "SearchAction",
-                                            "target": {"@type": "URL",
-                                                        "encodingFormat": f"{encoding}",
+                                            "target": {"@type": "EntryPoint",
+                                                        "contentType": f"{encoding}",
                                                         "url": f"{k}",
                                                         "description": f"Download dataset data as {encoding} file at this URL"}
                                             })
@@ -547,8 +547,8 @@ class SPASE(StrategyInterface):
                     # use GSFC CDAWeb portal to download CDF
                     else:
                         potential_actionList.append({"@type": "SearchAction",
-                                                "target": {"@type": "URL",
-                                                            "encodingFormat": f"{encoding}",
+                                                "target": {"@type": "EntryPoint",
+                                                            "contentType": f"{encoding}",
                                                             "url": f"{k}",
                                                             "description": "Download dataset data as CDF or CSV file at this URL"}
                                                 })
@@ -2234,7 +2234,7 @@ def main(folder, printFlag = True, desiredProperties = ["id", "identifier", "sam
 folder = "C:/Users/zboquet/NASA/DisplayData"
 #folder = "C:/Users/zboquet/NASA/DisplayData/ACE/MAG"
 #folder = "C:/Users/zboquet/NASA/NumericalData/MMS/4/HotPlasmaCompositionAnalyzer/Burst/Level2/Ion"
-main(folder, False, ["creator", "contributor", "publisher", "funding"])
+#main(folder, False, ["potential_action"])
 
 #folder = "C:/Users/zboquet/NASA/NumericalData/ACE/EPAM"
 #folder = "C:/Users/zboquet/NASA/NumericalData/Cassini/MAG"
@@ -2242,6 +2242,6 @@ main(folder, False, ["creator", "contributor", "publisher", "funding"])
 #folder = "C:/Users/zboquet/NASA/NumericalData/ACE"
 # start at list item 163 if want to skip ACE folder
 folder = "C:/Users/zboquet/NASA/NumericalData"
-main(folder, False, ["is_part_of"])
+#main(folder, False, ["is_part_of"])
 
 
