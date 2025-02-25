@@ -150,33 +150,43 @@ class SPASE(StrategyInterface):
         return delete_null_values(is_accessible_for_free)
 
     def get_keywords(self) -> Union[str, None]:
-        # Mapping: schema:keywords = spase:ResourceHeader/spase:Keyword
+        # Mapping: schema:keywords = spase:Keyword AND spase:MeasurementType
         keywords = []
         for child in self.desiredRoot.iter(tag=etree.Element):
             if child.tag.endswith("Keyword"):
+                keywords.append(child.text)
+            elif child.tag.endswith("MeasurementType"):
                 keywords.append(child.text)
         if keywords == []:
             keywords = None
         return delete_null_values(keywords)
 
-    def get_identifier(self) -> Union[str, Dict, None]:
+    def get_identifier(self) -> Union[Dict, List[Dict], None]:
         # Mapping: schema:identifier = spase:ResourceHeader/spase:DOI (or https://hpde.io landing page, if no DOI)
         # Each item is: {@id: URL, @type: schema:PropertyValue, propertyID: URI for identifier scheme, value: identifier value, url: URL}
         # Uses identifier scheme URI, provided at: https://schema.org/identifier
         #  OR schema:PropertyValue, provided at: https://schema.org/PropertyValue
         url = self.get_url()
+        ID = self.get_id()
         # if SPASE record has a DOI
         if "doi" in url:
             temp = url.split("/")
             value = "doi:" + "/".join(temp[3:])
-            identifier = {"@id": f"{url}",
-                        "@type" : "PropertyValue",
-                        "propertyID": "https://registry.identifiers.org/registry/doi",
-                        "value": f"{value}",
-                        "url": f"{url}"}
+            identifier = [{"@id": url,
+                            "@type" : "PropertyValue",
+                            "propertyID": "https://registry.identifiers.org/registry/doi",
+                            "value": value,
+                            "url": url},
+                        {"@type": "PropertyValue",
+                            "propertyID": "SPASE",
+                            "value": ID}
+                        ]
         # if SPASE record only has landing page instead
         else:
-            identifier = url
+            identifier = {"@type": "PropertyValue",
+                            "propertyID": "SPASE",
+                            "url": url,
+                            "value": ID}
         return identifier
 
     def get_citation(self) -> Union[str, Dict, None]:
@@ -440,9 +450,7 @@ class SPASE(StrategyInterface):
                                         #"maxValue": f"{maxVal}"})
                 i += 1
         # preserve order of elements
-        if len(variable_measured) != 0:
-            variable_measured = {"@list": variable_measured}
-        else:
+        if len(variable_measured) == 0:
             variable_measured = None
         return delete_null_values(variable_measured)
 
@@ -468,9 +476,7 @@ class SPASE(StrategyInterface):
                                 "encodingFormat": f"{v[0]}"})
         # preserve order of elements
         if len(distribution) != 0:
-            if len(distribution) > 1:
-                distribution = {"@list": distribution}
-            else:
+            if len(distribution) == 1:
                 distribution = distribution[0]
         else:
             distribution = None
@@ -554,7 +560,7 @@ class SPASE(StrategyInterface):
                                                 })
         # preserve order of elements
         if len(potential_actionList) != 0:
-            potential_action = {"@list": potential_actionList}
+            potential_action = potential_actionList
         else:
             potential_action = None
         return delete_null_values(potential_action)
@@ -646,35 +652,16 @@ class SPASE(StrategyInterface):
             SPASE_Location,
             namespaces=self.namespaces,
         )
-        SPASE_Location = ".//spase:" + f"{desiredTag[1]}/spase:TemporalDescription/spase:Cadence"
-        repeat_frequency = self.metadata.findtext(
-            SPASE_Location,
-            namespaces=self.namespaces,
-        )
 
         explanation = ""
 
         if start:
             if stop:
-                if repeat_frequency:
-                    explanation = get_cadenceContext(repeat_frequency)
-                    temporal_coverage = {"@type": "DateTime",
-                                        "temporalCoverage": f"{start}/{stop}",
-                                        "temporal": {"temporal": repeat_frequency,
-                                                    "description": explanation}
-                    }
-                else:
-                    temporal_coverage = f"{start}/{stop}"
+                temporal_coverage = {"@type": "DateTime",
+                                    "temporalCoverage": f"{start}/{stop}"
+                }
             else:
-                if repeat_frequency:
-                    explanation = get_cadenceContext(repeat_frequency)
-                    temporal_coverage = {"@type": "DateTime",
-                                        "temporalCoverage": f"{start}/..",
-                                        "temporal": {"temporal": repeat_frequency,
-                                                    "description": explanation}
-                    }
-                else:
-                    temporal_coverage = f"{start}/.."
+                temporal_coverage = f"{start}/.."
         else:
             temporal_coverage = None
         return delete_null_values(temporal_coverage)
@@ -693,15 +680,13 @@ class SPASE(StrategyInterface):
         ):
             spatial_coverage.append(
                 {
-                    "@type": "schema:Place",
+                    "@type": "Place",
                     "identifier": f"http://www.spase-group.org/data/schema/{item.text.replace('.', '_').upper()}",
                     "alternateName": item.text,
                 }
             )
         # preserve order of elements
-        if len(spatial_coverage) != 0:
-            spatial_coverage = {"@list": spatial_coverage}
-        else:
+        if len(spatial_coverage) == 0:
             spatial_coverage = None
         return delete_null_values(spatial_coverage)
 
@@ -846,10 +831,7 @@ class SPASE(StrategyInterface):
                         found = True
                 i += 1
         # preserve order of elements
-        if len(contributor) != 0:
-            if len(contributor) > 1:
-                contributor = {"@list": contributor}
-        else:
+        if len(contributor) == 0:
             contributor = None
 
         return delete_null_values(contributor)
@@ -949,9 +931,7 @@ class SPASE(StrategyInterface):
                 i += 1
         # preserve order of elements
         if len(funding) != 0:
-            if len(funding) > 1:
-                funding = {"@list": funding}
-            else:
+            if len(funding) == 1:
                 funding = funding[0]
         else:
             funding = None
@@ -1017,7 +997,9 @@ class SPASE(StrategyInterface):
                     relations[i] = testSpase.get_url()
                 i += 1
             if len(relations) > 1:
-                was_revision_of = {"@id": relations}
+                was_revision_of = []
+                for relation in relations:
+                    was_revision_of.append({"@id": relation})
             else:
                 was_revision_of = {"@id": relations[0]}
         return delete_null_values(was_revision_of)
@@ -1065,7 +1047,9 @@ class SPASE(StrategyInterface):
                     raise ValueError("Could not access associated SPASE record.")
                 i += 1
             if len(derivations) > 1:
-                is_based_on = {"@id": derivations}
+                is_based_on = []
+                for derivation in derivations:
+                    is_based_on.append({"@id": derivation})
             else:
                 is_based_on = {"@id": derivations[0]}
         return delete_null_values(is_based_on)
@@ -1279,8 +1263,8 @@ def get_accessURLs(metadata: etree.ElementTree) -> tuple:
                            'png', 'gif', 'tar', 'netcdf3', 'netcdf4', 'hdf5',
                            'zarr', 'asdf', 'zip']
             protocol, sep, domain = k.partition("://")
-            domain, sep, path = domain.partition("/")
-            domain, sep, ext = domain.rpartition(".")
+            domain, sep, downloadFile = domain.rpartition("/")
+            downloadFile, sep, ext = downloadFile.rpartition(".")
             # see if file extension is one associated w data files
             #print(ext)
             if ext not in DataFileExt:
@@ -1541,26 +1525,6 @@ def nameSplitter(person:str) -> tuple:
     else:
         raise ValueError("This function only takes a nonempty string as an argument. Try again.")
     return nameStr, givenName, familyName
-
-def get_measurement_type(metadata: etree.ElementTree) -> Union[Dict, None]:
-    """
-    :param metadata:    The SPASE metadata object as an XML tree.
-
-    :returns:   The values found in the MeasurementType field(s) formatted as a dictionary
-    """
-    root = metadata.getroot()
-    measurement_type = None
-    measurementTypes = []
-    for elt in root.iter(tag=etree.Element):
-        if elt.tag.endswith("NumericalData") or elt.tag.endswith("DisplayData"):
-            desiredRoot = elt
-    for child in desiredRoot.iter(tag=etree.Element):
-        if child.tag.endswith("MeasurementType"):
-            measurementTypes.append(child.text)
-    if measurementTypes:
-        measurement_type = {"@type": "DefinedTerm",
-                            "keywords": measurementTypes}
-    return measurement_type
 
 def get_information_url(metadata: etree.ElementTree) -> Union[List[Dict], None]:
     """
@@ -1878,7 +1842,9 @@ def get_is_related_to(metadata: etree.ElementTree, path:str) -> Union[Dict, None
                 raise ValueError("Could not access associated SPASE record.")
             i += 1
         if len(relations) > 1:
-            is_related_to = {"@id": relations}
+            is_related_to = []
+            for relation in relations:
+                is_related_to.append({"@id": relation})
         else:
             is_related_to = {"@id": relations[0]}
     return is_related_to
@@ -1924,7 +1890,9 @@ def get_is_part_of(metadata: etree.ElementTree, path:str) -> Union[Dict, None]:
                 raise ValueError("Could not access associated SPASE record.")
             i += 1
         if len(relations) > 1:
-            is_part_of = {"@id": relations}
+            is_part_of = []
+            for relation in relations:
+                is_part_of.append({"@id": relation})
         else:
             is_part_of = {"@id": relations[0]}
     return is_part_of
@@ -1984,12 +1952,40 @@ def get_ROR(orgName:str) -> Union[str, None]:
     #print(ror)
     return ror
 
-def main(folder, printFlag = True, desiredProperties = ["id", "identifier", "sameAs", "url", "name", "description", "date_published",
-                                                        "keywords", "creator", "citation", "temporal_coverage", "spatial_coverage",
-                                                        "publisher", "distribution", "potential_action", "variable_measured", 
-                                                        "funding", "license", "was_revision_of", "was_derived_from", "is_based_on", 
-                                                        "is_related_to", "is_part_of", "date_created", "date_modified", "contributor",
-                                                        "measurement_type", "instrument", "observatory", "alternate_name", "inLanguage"]) -> None:
+def get_temporal(metadata: etree.ElementTree, namespaces: Dict) -> Union[List, None]:
+        # Mapping: schema:temporal = spase:TemporalDescription/spase:Cadence
+        # Each object is:
+        #   [ explanation (string explaining meaning of cadence), Cadence]
+        # Schema found at https://schema.org/temporal
+        root = metadata.getroot()
+        for elt in root.iter(tag=etree.Element):
+            if elt.tag.endswith("NumericalData") or elt.tag.endswith("DisplayData"):
+                desiredRoot = elt
+        
+        desiredTag = desiredRoot.tag.split("}")
+        SPASE_Location = ".//spase:" + f"{desiredTag[1]}/spase:TemporalDescription/spase:Cadence"
+        repeat_frequency =  metadata.findtext(
+            SPASE_Location,
+            namespaces= namespaces,
+        )
+
+        explanation = ""
+
+        if repeat_frequency:
+            explanation = get_cadenceContext(repeat_frequency)
+            temporal = [explanation, repeat_frequency]
+        else:
+            temporal = None
+        return delete_null_values(temporal)
+
+sortedProps = sorted(["id", "identifier", "sameAs", "url", "name", "description", "date_published",
+                "keywords", "creator", "citation", "temporal_coverage", "spatial_coverage",
+                "publisher", "distribution", "potential_action", "variable_measured", 
+                "funding", "license", "was_revision_of", "was_derived_from", "is_based_on", 
+                "is_related_to", "is_part_of", "date_created", "date_modified", "contributor",
+                "temporal", "instrument", "observatory", "alternate_name", "inLanguage"])
+
+def main(folder, printFlag = True, desiredProperties = sortedProps) -> None:
     # list that holds SPASE records already checked
     searched = []
     SPASE_paths = []
@@ -2035,6 +2031,7 @@ def main(folder, printFlag = True, desiredProperties = ["id", "identifier", "sam
                 contributor = testSpase.get_contributor()
                 variable_measured = testSpase.get_variable_measured()
                 temporal_coverage = testSpase.get_temporal_coverage()
+                temporal = get_temporal(testSpase.metadata, testSpase.namespaces)
                 spatial_coverage = testSpase.get_spatial_coverage()
                 distribution = testSpase.get_distribution()
                 potential_action = testSpase.get_potential_action()
@@ -2050,7 +2047,6 @@ def main(folder, printFlag = True, desiredProperties = ["id", "identifier", "sam
                 #is_related_to, ObsBy, Part = get_is_related_to(testSpase.metadata)
                 is_related_to = get_is_related_to(testSpase.metadata, record)
                 is_part_of = get_is_part_of(testSpase.metadata, record)
-                measurement_type = get_measurement_type(testSpase.metadata)
                 instrument = get_instrument(testSpase.metadata, record)
                 observatory = get_observatory(testSpase.metadata, record)
                 alternate_name = get_alternate_name(testSpase.metadata)
@@ -2197,10 +2193,10 @@ def main(folder, printFlag = True, desiredProperties = ["id", "identifier", "sam
                                 print(json.dumps(variable_measured, indent=4))
                             else:
                                 print("No parameters found.")
-                        elif property == "measurement_type":
-                            if measurement_type is not None:
-                                print(" measurement_type:", end=" ")
-                                print(json.dumps(measurement_type, indent=4))
+                        elif property == "temporal":
+                            if temporal is not None:
+                                print(" temporal:", end=" ")
+                                print(json.dumps(temporal, indent=4))
                             else:
                                 print("No measurementType found.")
                         elif property == "instrument":

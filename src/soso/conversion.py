@@ -109,7 +109,7 @@ def main2(file) -> None:
     dict = json.loads(r)
     dict.update(kwargs)
     out_file = open("./SOSO_Draft.json", "w")
-    json.dump(dict, out_file, indent=3)
+    json.dump(dict, out_file, indent=3, sort_keys=True)
     out_file.close()
     #finalDict = dict | kwargs
     #pprint(finalDict)
