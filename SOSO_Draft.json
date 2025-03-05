@@ -6,22 +6,20 @@
    "@id": "spase://NASA/NumericalData/MMS/4/HotPlasmaCompositionAnalyzer/Burst/Level2/Ion/PT0.625S",
    "@type": "Dataset",
    "alternateName": "MMS4_HPCA_BRST_L2_ION",
-   "citation": {
-      "@type": "CreativeWork",
-      "about": [
-         {
-            "description": "The Magnetospheric Multiscale (MMS) Mission Home Page hosted by the Goddard Space Flight Center (GSFC).",
-            "name": "The Magnetospheric Multiscale (MMS) Mission home page at Goddard Space Flight Center (GSFC)",
-            "url": "https://mms.gsfc.nasa.gov/"
-         },
-         {
-            "description": "The Magnetospheric Multiscale (MMS) Mission home page hosted by the Laboratory of Atmospheric and Space Physics, Science Data Center (LASP, SDC) at the University of Colorado, Boulder.",
-            "name": "Data Caveats and Current Release Notes at LASP MMS SDC",
-            "url": "https://lasp.colorado.edu/mms/sdc/public/datasets/hpca/"
-         }
-      ],
-      "citation": "Fuselier, S.A., Young, D.T., Gomez, R.G., & Burch, J.L. (2022). Space Physics Data Facility. https://doi.org/10.48322/6cfb-rq65"
-   },
+   "citation": [
+      {
+         "@type": "CreativeWork",
+         "description": "The Magnetospheric Multiscale (MMS) Mission Home Page hosted by the Goddard Space Flight Center (GSFC).",
+         "name": "The Magnetospheric Multiscale (MMS) Mission home page at Goddard Space Flight Center (GSFC)",
+         "url": "https://mms.gsfc.nasa.gov/"
+      },
+      {
+         "@type": "CreativeWork",
+         "description": "The Magnetospheric Multiscale (MMS) Mission home page hosted by the Laboratory of Atmospheric and Space Physics, Science Data Center (LASP, SDC) at the University of Colorado, Boulder.",
+         "name": "Data Caveats and Current Release Notes at LASP MMS SDC",
+         "url": "https://lasp.colorado.edu/mms/sdc/public/datasets/hpca/"
+      }
+   ],
    "contributor": [
       {
          "@type": "Role",
@@ -148,27 +146,33 @@
       }
    ],
    "inLanguage": "en",
-   "instrument": [
-      {
-         "@type": "IndividualProduct",
-         "identifier": "spase://SMWG/Instrument/MMS/4/FIELDS/FGM",
-         "name": "MMS 4 FIELDS Suite, Fluxgate Magnetometer (FGM) Instrument",
-         "url": "https://www.nasa.gov/mission_pages/mms/spacecraft/mms-instruments.html"
-      },
-      {
-         "@type": "IndividualProduct",
-         "identifier": "spase://SMWG/Instrument/MMS/4/HotPlasmaCompositionAnalyzer",
-         "name": "MMS 4 Hot Plasma Composition Analyzer (HPCA) Instrument",
-         "url": "https://www.nasa.gov/mission_pages/mms/spacecraft/mms-instruments.html"
-      }
-   ],
    "isBasedOn": {
       "@id": "https://doi.org/10.48322/cb14-a164"
    },
    "isPartOf": {
       "@id": "https://doi.org/10.48322/s9mg-he04"
    },
-   "isRelatedTo": [
+   "keywords": [
+      "EnergeticParticles",
+      "MagneticField",
+      "MMS",
+      "Magnetic Reconnection"
+   ],
+   "measurementTechnique": [
+      {
+         "@type": "DefinedTerm",
+         "identifier": "spase://SMWG/Instrument/MMS/4/FIELDS/FGM",
+         "name": "MMS 4 FIELDS Suite, Fluxgate Magnetometer (FGM) Instrument",
+         "url": "https://www.nasa.gov/mission_pages/mms/spacecraft/mms-instruments.html"
+      },
+      {
+         "@type": "DefinedTerm",
+         "identifier": "spase://SMWG/Instrument/MMS/4/HotPlasmaCompositionAnalyzer",
+         "name": "MMS 4 Hot Plasma Composition Analyzer (HPCA) Instrument",
+         "url": "https://www.nasa.gov/mission_pages/mms/spacecraft/mms-instruments.html"
+      }
+   ],
+   "mentions": [
       {
          "@id": "https://doi.org/10.48322/xhe6-5a16"
       },
@@ -176,28 +180,7 @@
          "@id": "https://doi.org/10.48322/2ry9-3s59"
       }
    ],
-   "keywords": [
-      "EnergeticParticles",
-      "MagneticField",
-      "MMS",
-      "Magnetic Reconnection"
-   ],
-   "license": "https://spdx.org/licenses/CC0-1.0.html",
    "name": "MMS 4 Hot Plasma Composition Analyzer (HPCA) Ions, Level 2 (L2), Burst Mode, 0.625 s Data",
-   "observatory": [
-      {
-         "@id": "spase://SMWG/Observatory/MMS",
-         "@type": "ResearchProject",
-         "name": "MMS",
-         "url": "https://mms.gsfc.nasa.gov/"
-      },
-      {
-         "@id": "spase://SMWG/Observatory/MMS/4",
-         "@type": "ResearchProject",
-         "name": "MMS-4",
-         "url": "https://mms.gsfc.nasa.gov/"
-      }
-   ],
    "potentialAction": [
       {
          "@type": "SearchAction",
@@ -262,6 +245,20 @@
          }
       }
    ],
+   "producer": [
+      {
+         "@id": "spase://SMWG/Observatory/MMS",
+         "@type": "ResearchProject",
+         "name": "MMS",
+         "url": "https://mms.gsfc.nasa.gov/"
+      },
+      {
+         "@id": "spase://SMWG/Observatory/MMS/4",
+         "@type": "ResearchProject",
+         "name": "MMS-4",
+         "url": "https://mms.gsfc.nasa.gov/"
+      }
+   ],
    "prov:wasDerivedFrom": {
       "@id": "https://doi.org/10.48322/cb14-a164"
    },
@@ -316,6 +313,15 @@
          "identifier": "http://www.spase-group.org/data/schema/HELIOSPHERE_NEAREARTH"
       }
    ],
+   "subjectOf": {
+      "@type": "DataDownload",
+      "contentUrl": "https://hpde.io/NASA/NumericalData/MMS/4/HotPlasmaCompositionAnalyzer/Burst/Level2/Ion/PT0.625S.xml",
+      "dateModified": "2023-03-04T12:34:56",
+      "description": "SPASE metadata describing the dataset",
+      "encodingFormat": "application/xml",
+      "license": "Creative Commons Zero v1.0 Universal",
+      "name": "SPASE metadata for dataset"
+   },
    "temporal": [
       "The time series is periodic with a 0.625 second cadence",
       "PT0.625S"
