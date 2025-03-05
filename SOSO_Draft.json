@@ -158,6 +158,7 @@
       "MMS",
       "Magnetic Reconnection"
    ],
+   "license": "https://spdx.org/licenses/CC0-1.0.html",
    "measurementTechnique": [
       {
          "@type": "DefinedTerm",
