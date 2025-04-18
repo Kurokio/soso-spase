@@ -31,10 +31,6 @@
             "@type": "Role",
             "contributor": {
                "@type": "Person",
-               "affiliation": {
-                  "@type": "Organization",
-                  "name": "University of Iowa"
-               },
                "familyName": "Pickett",
                "givenName": "Jolene S.",
                "name": "Jolene S. Pickett"
@@ -78,21 +74,9 @@
          {
             "@type": "Role",
             "creator": {
-               "@id": "https://orcid.org/0000-0001-9473-7000",
                "@type": "Person",
-               "affiliation": {
-                  "@type": "Organization",
-                  "name": "Southwest Research Institute"
-               },
                "familyName": "Young",
                "givenName": "David T.",
-               "identifier": {
-                  "@id": "https://orcid.org/0000-0001-9473-7000",
-                  "@type": "PropertyValue",
-                  "propertyID": "https://registry.identifiers.org/registry/orcid",
-                  "url": "https://orcid.org/0000-0001-9473-7000",
-                  "value": "orcid:0000-0001-9473-7000"
-               },
                "name": "Young, David T."
             },
             "roleName": [
@@ -167,6 +151,7 @@
       {
          "@id": "https://doi.org/10.48322/6cfb-rq65",
          "@type": "PropertyValue",
+         "name": "DOI: 10.48322/6cfb-rq65",
          "propertyID": "https://registry.identifiers.org/registry/doi",
          "url": "https://doi.org/10.48322/6cfb-rq65",
          "value": "doi:10.48322/6cfb-rq65"
@@ -199,8 +184,10 @@
       {
          "@type": "DefinedTerm",
          "inDefinedTermSet": {
+            "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#MeasurementType",
             "@type": "DefinedTermSet",
-            "name": "SPASE MeasurementType"
+            "name": "SPASE MeasurementType",
+            "url": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#MeasurementType"
          },
          "name": "Energetic Particles",
          "termCode": "EnergeticParticles"
@@ -208,8 +195,8 @@
       {
          "@type": "DefinedTerm",
          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "SPASE MeasurementType"
+            "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#MeasurementType",
+            "@type": "DefinedTermSet"
          },
          "name": "Magnetic Field",
          "termCode": "MagneticField"
@@ -316,72 +303,6 @@
             "prov:Activity"
          ],
          "prov:used": {
-            "@id": "https://hpde.io/SMWG/Observatory/MMS",
-            "@type": [
-               "ResearchProject",
-               "prov:Entity",
-               "sosa:Platform"
-            ],
-            "identifier": {
-               "@id": "https://hpde.io/SMWG/Observatory/MMS",
-               "@type": "PropertyValue",
-               "propertyID": "SPASE Resource ID",
-               "value": "spase://SMWG/Observatory/MMS"
-            },
-            "name": "MMS",
-            "url": "https://hpde.io/SMWG/Observatory/MMS"
-         }
-      },
-      {
-         "@type": [
-            "ResearchProject",
-            "prov:Activity"
-         ],
-         "prov:used": {
-            "@id": "https://hpde.io/SMWG/Observatory/MMS/4",
-            "@type": [
-               "ResearchProject",
-               "prov:Entity",
-               "sosa:Platform"
-            ],
-            "identifier": {
-               "@id": "https://hpde.io/SMWG/Observatory/MMS/4",
-               "@type": "PropertyValue",
-               "propertyID": "SPASE Resource ID",
-               "value": "spase://SMWG/Observatory/MMS/4"
-            },
-            "name": "MMS-4",
-            "url": "https://hpde.io/SMWG/Observatory/MMS/4"
-         }
-      },
-      {
-         "@type": [
-            "ResearchProject",
-            "prov:Activity"
-         ],
-         "prov:used": {
-            "@id": "https://hpde.io/SMWG/Instrument/MMS/4/FIELDS/FGM",
-            "@type": [
-               "IndividualProduct",
-               "prov:Entity",
-               "sosa:System"
-            ],
-            "identifier": {
-               "@id": "https://hpde.io/SMWG/Instrument/MMS/4/FIELDS/FGM",
-               "@type": "PropertyValue",
-               "propertyID": "SPASE Resource ID",
-               "value": "spase://SMWG/Instrument/MMS/4/FIELDS/FGM"
-            },
-            "name": "MMS 4 FIELDS Suite, Fluxgate Magnetometer (FGM) Instrument",
-            "url": "https://hpde.io/SMWG/Instrument/MMS/4/FIELDS/FGM"
-         }
-      },
-      {
-         "@type": [
-            "ResearchProject",
-            "prov:Activity"
-         ],
-         "prov:used": {
             "@id": "https://hpde.io/SMWG/Instrument/MMS/4/HotPlasmaCompositionAnalyzer",
             "@type": [
                "IndividualProduct",
@@ -412,121 +333,99 @@
    "spatialCoverage": [
       {
          "@type": "Place",
-         "additionalProperty": {
-            "@type": "PropertyValue",
-            "valueReference": {
-               "@type": "DefinedTerm",
-               "inDefinedTermSet": {
-                  "@type": "DefinedTermSet",
-                  "name": "SPASE ObservedRegion"
-               },
-               "termCode": "Earth.Magnetosheath"
-            }
+         "keywords": {
+            "@type": "DefinedTerm",
+            "inDefinedTermSet": {
+               "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Region",
+               "@type": "DefinedTermSet",
+               "name": "SPASE MeasurementType",
+               "url": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Region"
+            },
+            "termCode": "Earth.Magnetosheath"
          },
          "name": "Earth Magnetosheath"
       },
       {
          "@type": "Place",
-         "additionalProperty": {
-            "@type": "PropertyValue",
-            "valueReference": {
-               "@type": "DefinedTerm",
-               "inDefinedTermSet": {
-                  "@type": "DefinedTermSet",
-                  "name": "SPASE ObservedRegion"
-               },
-               "termCode": "Earth.Magnetosphere"
-            }
+         "keywords": {
+            "@type": "DefinedTerm",
+            "inDefinedTermSet": {
+               "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Region",
+               "@type": "DefinedTermSet"
+            },
+            "termCode": "Earth.Magnetosphere"
          },
          "name": "Earth Magnetosphere"
       },
       {
          "@type": "Place",
-         "additionalProperty": {
-            "@type": "PropertyValue",
-            "valueReference": {
-               "@type": "DefinedTerm",
-               "inDefinedTermSet": {
-                  "@type": "DefinedTermSet",
-                  "name": "SPASE ObservedRegion"
-               },
-               "termCode": "Earth.Magnetosphere.Magnetotail"
-            }
+         "keywords": {
+            "@type": "DefinedTerm",
+            "inDefinedTermSet": {
+               "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Region",
+               "@type": "DefinedTermSet"
+            },
+            "termCode": "Earth.Magnetosphere.Magnetotail"
          },
          "name": "Earth Magnetosphere Magnetotail"
       },
       {
          "@type": "Place",
-         "additionalProperty": {
-            "@type": "PropertyValue",
-            "valueReference": {
-               "@type": "DefinedTerm",
-               "inDefinedTermSet": {
-                  "@type": "DefinedTermSet",
-                  "name": "SPASE ObservedRegion"
-               },
-               "termCode": "Earth.Magnetosphere.Main"
-            }
+         "keywords": {
+            "@type": "DefinedTerm",
+            "inDefinedTermSet": {
+               "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Region",
+               "@type": "DefinedTermSet"
+            },
+            "termCode": "Earth.Magnetosphere.Main"
          },
          "name": "Earth Magnetosphere Main"
       },
       {
          "@type": "Place",
-         "additionalProperty": {
-            "@type": "PropertyValue",
-            "valueReference": {
-               "@type": "DefinedTerm",
-               "inDefinedTermSet": {
-                  "@type": "DefinedTermSet",
-                  "name": "SPASE ObservedRegion"
-               },
-               "termCode": "Earth.Magnetosphere.RadiationBelt"
-            }
+         "keywords": {
+            "@type": "DefinedTerm",
+            "inDefinedTermSet": {
+               "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Region",
+               "@type": "DefinedTermSet"
+            },
+            "termCode": "Earth.Magnetosphere.RadiationBelt"
          },
          "name": "Earth Magnetosphere RadiationBelt"
       },
       {
          "@type": "Place",
-         "additionalProperty": {
-            "@type": "PropertyValue",
-            "valueReference": {
-               "@type": "DefinedTerm",
-               "inDefinedTermSet": {
-                  "@type": "DefinedTermSet",
-                  "name": "SPASE ObservedRegion"
-               },
-               "termCode": "Earth.NearSurface.EquatorialRegion"
-            }
+         "keywords": {
+            "@type": "DefinedTerm",
+            "inDefinedTermSet": {
+               "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Region",
+               "@type": "DefinedTermSet"
+            },
+            "termCode": "Earth.NearSurface.EquatorialRegion"
          },
          "name": "Earth NearSurface EquatorialRegion"
       },
       {
          "@type": "Place",
-         "additionalProperty": {
-            "@type": "PropertyValue",
-            "valueReference": {
-               "@type": "DefinedTerm",
-               "inDefinedTermSet": {
-                  "@type": "DefinedTermSet",
-                  "name": "SPASE ObservedRegion"
-               },
-               "termCode": "Earth.NearSurface.Plasmasphere"
-            }
+         "keywords": {
+            "@type": "DefinedTerm",
+            "inDefinedTermSet": {
+               "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Region",
+               "@type": "DefinedTermSet"
+            },
+            "termCode": "Earth.NearSurface.Plasmasphere"
          },
          "name": "Earth NearSurface Plasmasphere"
       },
       {
          "@type": "Place",
-         "additionalProperty": {
-            "@type": "PropertyValue",
-            "valueReference": {
-               "@type": "DefinedTerm",
-               "inDefinedTermSet": {
-                  "@type": "DefinedTermSet",
-                  "name": "SPASE ObservedRegion"
-               },
-               "termCode": "Heliosphere.NearEarth"
-            }
+         "keywords": {
+            "@type": "DefinedTerm",
+            "inDefinedTermSet": {
+               "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Region",
+               "@type": "DefinedTermSet"
+            },
+            "termCode": "Heliosphere.NearEarth"
          },
          "name": "Heliosphere NearEarth"
       }
