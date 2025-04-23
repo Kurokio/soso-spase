@@ -307,60 +307,116 @@
          "termCode": "MagneticField"
       }
    ],
-   "mentions": {
-      "@id": "https://doi.org/10.48322/xhe6-5a16",
-      "@type": "Dataset",
-      "creator": {
-         "@list": [
-            {
-               "@type": "Person",
-               "familyName": "Gold",
-               "givenName": "R.E.",
-               "name": "Gold, R.E."
-            },
-            {
-               "@type": "Person",
-               "familyName": "Roelof",
-               "givenName": "E.C.",
-               "name": "Roelof, E.C."
-            },
-            {
-               "@type": "Person",
-               "familyName": "Krimigis",
-               "givenName": "S.",
-               "name": "Krimigis, S."
-            },
-            {
-               "@type": "Person",
-               "familyName": "Haggerty",
-               "givenName": "D.",
-               "name": "Haggerty, D."
-            },
-            {
-               "@type": "Person",
-               "familyName": "Armstrong",
-               "givenName": "T.P.",
-               "name": "Armstrong, T.P."
-            },
-            {
-               "@type": "Person",
-               "familyName": "Manweiler",
-               "givenName": "J.W.",
-               "name": "Manweiler, J.W."
-            },
-            {
-               "@type": "Person",
-               "familyName": "Patterson",
-               "givenName": "J.D.",
-               "name": "Patterson, J.D."
-            }
-         ]
+   "mentions": [
+      {
+         "@id": "https://doi.org/10.48322/xhe6-5a16",
+         "@type": "Dataset",
+         "creator": {
+            "@list": [
+               {
+                  "@type": "Person",
+                  "familyName": "Gold",
+                  "givenName": "R.E.",
+                  "name": "Gold, R.E."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Roelof",
+                  "givenName": "E.C.",
+                  "name": "Roelof, E.C."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Krimigis",
+                  "givenName": "S.",
+                  "name": "Krimigis, S."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Haggerty",
+                  "givenName": "D.",
+                  "name": "Haggerty, D."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Armstrong",
+                  "givenName": "T.P.",
+                  "name": "Armstrong, T.P."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Manweiler",
+                  "givenName": "J.W.",
+                  "name": "Manweiler, J.W."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Patterson",
+                  "givenName": "J.D.",
+                  "name": "Patterson, J.D."
+               }
+            ]
+         },
+         "description": "17-min-averaged sectored proton fluxes from the MF Spectrum Analyzer of the ACE/EPAM LEFS150 instrument. All energies thresholds take into account the incident particle type, shielding, and inactive dead-layer of the solid state detector. All fluxes are background corrected and are in the solar wind rest frame.",
+         "identifier": "https://doi.org/10.48322/xhe6-5a16",
+         "name": "ACE Electron Proton Alpha Monitor (EPAM) LEFS150 MFSA, Solar Wind Frame, Sectored Proton Fluxes, 17 min Averages",
+         "url": "https://doi.org/10.48322/xhe6-5a16"
       },
-      "description": "17-min-averaged sectored proton fluxes from the MF Spectrum Analyzer of the ACE/EPAM LEFS150 instrument. All energies thresholds take into account the incident particle type, shielding, and inactive dead-layer of the solid state detector. All fluxes are background corrected and are in the solar wind rest frame.",
-      "identifier": "https://doi.org/10.48322/xhe6-5a16",
-      "name": "ACE Electron Proton Alpha Monitor (EPAM) LEFS150 MFSA, Solar Wind Frame, Sectored Proton Fluxes, 17 min Averages",
-      "url": "https://doi.org/10.48322/xhe6-5a16"
-   },
+      {
+         "@id": "https://doi.org/10.48322/2ry9-3s59",
+         "@type": "Dataset",
+         "creator": {
+            "@list": [
+               {
+                  "@type": "Person",
+                  "familyName": "Gold",
+                  "givenName": "R.E.",
+                  "name": "Gold, R.E."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Roelof",
+                  "givenName": "E.C.",
+                  "name": "Roelof, E.C."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Krimigis",
+                  "givenName": "S.",
+                  "name": "Krimigis, S."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Haggerty",
+                  "givenName": "D.",
+                  "name": "Haggerty, D."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Armstrong",
+                  "givenName": "T.P.",
+                  "name": "Armstrong, T.P."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Manweiler",
+                  "givenName": "J.W.",
+                  "name": "Manweiler, J.W."
+               },
+               {
+                  "@type": "Person",
+                  "familyName": "Patterson",
+                  "givenName": "J.D.",
+                  "name": "Patterson, J.D."
+               }
+            ]
+         },
+         "description": "Daily-averaged sectored proton fluxes from the MF Spectrum Analyzer of the ACE/EPAM LEFS150 instrument. All energies thresholds take into account the incident particle type, shielding, and inactive dead-layer of the solid state detector. All fluxes are background corrected and are in the solar wind rest frame.",
+         "identifier": "https://doi.org/10.48322/2ry9-3s59",
+         "name": "ACE Electron Proton Alpha Monitor (EPAM) LEFS150 MFSA, Solar Wind Frame, Sectored Proton Fluxes, Daily Averages",
+         "url": "https://doi.org/10.48322/2ry9-3s59"
+      }
+   ],
    "name": "MMS 4 Hot Plasma Composition Analyzer (HPCA) Ions, Level 2 (L2), Burst Mode, 0.625 s Data",
    "potentialAction": [
       {
