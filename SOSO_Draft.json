@@ -1,9 +1,11 @@
 {
-   "@context": {
-      "@vocab": "https://schema.org/",
-      "prov": "http://www.w3.org/ns/prov#",
-      "sosa": "https://w3c.github.io/sdw-sosa-ssn/ssn/#SOSA"
-   },
+   "@context": [
+      "https://schema.org/",
+      {
+         "prov": "http://www.w3.org/ns/prov#",
+         "sosa": "https://w3c.github.io/sdw-sosa-ssn/ssn/#SOSA"
+      }
+   ],
    "@id": "https://doi.org/10.48322/6cfb-rq65",
    "@type": "Dataset",
    "alternateName": "MMS4_HPCA_BRST_L2_ION",
@@ -208,7 +210,7 @@
                "name": "deceased - formerly at University of Iowa"
             },
             "familyName": "Gurnett",
-            "givenName": " Donald A.",
+            "givenName": "Donald A.",
             "name": "Gurnett, Donald A."
          }
       ],
@@ -430,8 +432,8 @@
          "@type": "SearchAction",
          "target": {
             "@type": "EntryPoint",
-            "contentType": "CDF",
-            "description": "Download dataset data as CDF file at this URL",
+            "contentType": "application/x-cdf/",
+            "description": "Download dataset data as application/x-cdf/ file at this URL",
             "name": "FTPS from the MMS SDC (not with most browsers)",
             "url": "ftps://lasp.colorado.edu/mms/sdc/public/data/mms4/hpca/brst/l2/ion/"
          }
@@ -441,8 +443,8 @@
          "target": {
             "@id": "https://lasp.colorado.edu/mms/sdc/public/data/mms4/hpca/brst/l2/ion/",
             "@type": "EntryPoint",
-            "contentType": "CDF",
-            "description": "Download dataset data as CDF file at this URL",
+            "contentType": "application/x-cdf/",
+            "description": "Download dataset data as application/x-cdf/ file at this URL",
             "identifier": "https://lasp.colorado.edu/mms/sdc/public/data/mms4/hpca/brst/l2/ion/",
             "name": "HTTPS from the MMS SDC",
             "url": "https://lasp.colorado.edu/mms/sdc/public/data/mms4/hpca/brst/l2/ion/"
@@ -452,8 +454,8 @@
          "@type": "SearchAction",
          "target": {
             "@type": "EntryPoint",
-            "contentType": "CDF",
-            "description": "Download dataset data as CDF file at this URL",
+            "contentType": "application/x-cdf/",
+            "description": "Download dataset data as application/x-cdf/ file at this URL",
             "name": "FTPS from SPDF (not with most browsers)",
             "url": "ftps://spdf.gsfc.nasa.gov/pub/data/mms/mms4/hpca/brst/l2/ion/"
          }
@@ -463,8 +465,8 @@
          "target": {
             "@id": "https://cdaweb.gsfc.nasa.gov/cgi-bin/eval2.cgi?dataset=MMS4_HPCA_BRST_L2_ION&index=sp_phys",
             "@type": "EntryPoint",
-            "contentType": "CDF",
-            "description": "Download dataset data as CDF file at this URL using these product key(s): ['MMS4_HPCA_BRST_L2_ION']",
+            "contentType": "application/x-cdf/",
+            "description": "Download dataset data as application/x-cdf/ file at this URL using these product key(s): ['MMS4_HPCA_BRST_L2_ION']",
             "identifier": "https://cdaweb.gsfc.nasa.gov/cgi-bin/eval2.cgi?dataset=MMS4_HPCA_BRST_L2_ION&index=sp_phys",
             "name": "CDAWeb",
             "url": "https://cdaweb.gsfc.nasa.gov/cgi-bin/eval2.cgi?dataset=MMS4_HPCA_BRST_L2_ION&index=sp_phys"
@@ -491,7 +493,7 @@
          "target": {
             "@id": "https://cdaweb.gsfc.nasa.gov/hapi",
             "@type": "EntryPoint",
-            "contentType": "CSV",
+            "contentType": "application/csv/",
             "description": "Download dataset labeled by id in CSV format based on the requested start and end dates",
             "httpMethod": "GET",
             "identifier": "https://cdaweb.gsfc.nasa.gov/hapi",
@@ -518,7 +520,7 @@
                "name": "deceased - formerly at University of Iowa"
             },
             "familyName": "Gurnett",
-            "givenName": " Donald A.",
+            "givenName": "Donald A.",
             "name": "Gurnett, Donald A."
          }
       ],
@@ -591,7 +593,7 @@
                "name": "deceased - formerly at University of Iowa"
             },
             "familyName": "Gurnett",
-            "givenName": " Donald A.",
+            "givenName": "Donald A.",
             "name": "Gurnett, Donald A."
          }
       ],
